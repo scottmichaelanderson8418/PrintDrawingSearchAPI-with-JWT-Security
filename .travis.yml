@@ -1,0 +1,11 @@
+sudo: required  # (Or false if sudo is not needed)
+
+language: java
+jdk:
+  - openjdk17
+
+before_install:
+  - chmod +x mvnw
+
+script:
+  - ./mvnw clean install
