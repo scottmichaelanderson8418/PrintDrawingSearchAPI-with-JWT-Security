@@ -1,5 +1,7 @@
 package com.printdrawingsearch.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ import com.printdrawingsearch.repository.MyUserRepository;
  */
 @RestController
 public class RegistrationController {
+	Logger logger = LoggerFactory.getLogger(RegistrationController.class.getName());
 
 	/** The my user repository. */
 	@Autowired
@@ -34,11 +37,14 @@ public class RegistrationController {
 	@PostMapping("/register/user")
 	public ResponseEntity<String> createUser(@RequestBody MyUser user) {
 
+		logger.trace("Entered......createUser() ");
+
 		// Check if the username already exists
 		if (myUserRepository.findByUsername(user.getUsername()).isPresent()) {
+
+			logger.trace("Exited......createUser() ");
 			// Return conflict response if username already exists
-			return new ResponseEntity<>("User already exists. Try another username.",
-					HttpStatus.CONFLICT);
+			return new ResponseEntity<>("User already exists. Try another username.", HttpStatus.CONFLICT);
 		}
 
 		// Encode user password before saving
@@ -46,6 +52,7 @@ public class RegistrationController {
 		// Save user details to the repository
 		myUserRepository.save(user);
 
+		logger.trace("Exited......createUser() ");
 		// Return success response upon successful registration
 		return new ResponseEntity<>("Registration is successful :)", HttpStatus.OK);
 	}

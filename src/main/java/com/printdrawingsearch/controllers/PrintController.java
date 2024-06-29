@@ -41,7 +41,7 @@ public class PrintController {
 
 	/** The logger. */
 	// Initialize a logger for the class
-	Logger logger = LoggerFactory.getLogger(PrintController.class.getName());
+	public static final Logger logger = LoggerFactory.getLogger(PrintController.class.getName());
 
 	// The AuthenticationManager will help us authenticate by username and password
 	/** The authentication manager. */
@@ -85,14 +85,12 @@ public class PrintController {
 	public String authenticateAndGetToken(@RequestBody LoginForm loginForm) {
 
 		logger.trace("Entered......authenticateAndGetToken() ");
-		logger.debug("Entered......authenticateAndGetToken() ");
 
 		// the authenticationManager instance will call the "authenticate()"
 		// method and verify the username and password
 		// We will get an Authentication result object
 		Authentication authentication = authenticationManager
-				.authenticate(new UsernamePasswordAuthenticationToken(loginForm.username(),
-						loginForm.password()));
+				.authenticate(new UsernamePasswordAuthenticationToken(loginForm.username(), loginForm.password()));
 		// If credentials are authenticated then generate new token
 		if (authentication.isAuthenticated()) {
 
@@ -100,11 +98,10 @@ public class PrintController {
 			// Generate JWT token upon successful authentication
 
 			logger.trace("Exited..... authenticateAndGetToken() ");
-			logger.debug("Exited.....  authenticateAndGetToken()");
-			return jwtService
-					.generateToken(myUserDetailService.loadUserByUsername(loginForm.username()));
-		} else {
 
+			return jwtService.generateToken(myUserDetailService.loadUserByUsername(loginForm.username()));
+		} else {
+			logger.trace("Exited..... authenticateAndGetToken() ");
 			logger.error("Error occurred during authentication process");
 			// Throw exception for invalid credentials
 			throw new UsernameNotFoundException("Invalid credentials");
@@ -120,11 +117,13 @@ public class PrintController {
 	 */
 	@PostMapping("/print/create")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<PrintDrawingDto> createPrint(
-			@RequestBody PrintDrawingDto printDrawingDto) {
+	public ResponseEntity<PrintDrawingDto> createPrint(@RequestBody PrintDrawingDto printDrawingDto) {
+
+		logger.trace("Entered......createPrint() ");
+
 		System.out.println("/print/create"); // Log the creation request
-		return new ResponseEntity<>(printDrawingService.createPrint(printDrawingDto),
-				HttpStatus.CREATED);
+
+		return new ResponseEntity<>(printDrawingService.createPrint(printDrawingDto), HttpStatus.CREATED);
 	}
 
 	/**
@@ -165,9 +164,8 @@ public class PrintController {
 	 * @return a response containing the print drawings
 	 */
 	@GetMapping("/pagination/{pageNo}/{pageSize}")
-	public PrintDrawingResponse findByDiameterWithPaginationAndSorting(
-			@PathVariable("pageNo") int pageNo, @PathVariable("pageSize") int pageSize,
-			@RequestParam(value = "sortField", required = false) String field,
+	public PrintDrawingResponse findByDiameterWithPaginationAndSorting(@PathVariable("pageNo") int pageNo,
+			@PathVariable("pageSize") int pageSize, @RequestParam(value = "sortField", required = false) String field,
 			@RequestParam(value = "diameterMinValue", required = false) Float diameterMinValue,
 			@RequestParam(value = "diameterMaxValue", required = false) Float diameterMaxValue,
 			@RequestParam(value = "faceLengthMinValue", required = false) Float faceLengthMinValue,
@@ -191,8 +189,8 @@ public class PrintController {
 		}
 
 		// Retrieve print drawings with pagination and sorting
-		return printDrawingService.findDiameterWithPaginationAndSorting(pageNo, pageSize, field,
-				diameterMinValue, diameterMaxValue, faceLengthMinValue, faceLengthMaxValue);
+		return printDrawingService.findDiameterWithPaginationAndSorting(pageNo, pageSize, field, diameterMinValue,
+				diameterMaxValue, faceLengthMinValue, faceLengthMaxValue);
 	}
 
 	/**
@@ -206,8 +204,7 @@ public class PrintController {
 	public ResponseEntity<PrintDrawingResponse> getAllPrints(
 			@RequestParam(value = "pageNo", defaultValue = "0", required = false) int pageNo,
 			@RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
-		return new ResponseEntity<>(printDrawingService.getAllPrints(pageNo, pageSize),
-				HttpStatus.OK);
+		return new ResponseEntity<>(printDrawingService.getAllPrints(pageNo, pageSize), HttpStatus.OK);
 	}
 
 	/**
@@ -285,8 +282,8 @@ public class PrintController {
 	 * @return the updated print drawing
 	 */
 	@PutMapping("/print/update/{id}")
-	public ResponseEntity<PrintDrawingDto> updatePrintDetail(
-			@RequestBody PrintDrawingDto printDrawingUpdate, @PathVariable("id") int id) {
+	public ResponseEntity<PrintDrawingDto> updatePrintDetail(@RequestBody PrintDrawingDto printDrawingUpdate,
+			@PathVariable("id") int id) {
 
 		PrintDrawingDto response = printDrawingService.updatePrint(printDrawingUpdate, id);
 
