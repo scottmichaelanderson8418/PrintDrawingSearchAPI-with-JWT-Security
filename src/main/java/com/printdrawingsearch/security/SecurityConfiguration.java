@@ -1,5 +1,7 @@
 package com.printdrawingsearch.security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,8 +27,9 @@ import com.printdrawingsearch.service.MyUserDetailService;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
-
+	Logger logger = LoggerFactory.getLogger(SecurityConfiguration.class.getName());
 	@Autowired
+
 	private MyUserDetailService userDetailService;
 
 	@Autowired
@@ -53,8 +56,7 @@ public class SecurityConfiguration {
 
 				.authorizeHttpRequests(registry -> {
 
-					registry.requestMatchers("/home", "/register/**", "/api/authenticate")
-							.permitAll();
+					registry.requestMatchers("/home", "/register/**", "/api/authenticate").permitAll();
 
 					registry.requestMatchers("/admin/**").hasRole("ADMIN");
 
@@ -65,8 +67,7 @@ public class SecurityConfiguration {
 				// Allow all users to access the login page
 				.formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
 				// Add JWT authentication filter before UsernamePasswordAuthenticationFilter
-				.addFilterBefore(jwtAuthenticationFilter,
-						UsernamePasswordAuthenticationFilter.class)
+				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
 				// Build the security filter chain
 				.build();
 	}

@@ -2,6 +2,8 @@ package com.printdrawingsearch.security;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,12 +20,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Filter that checks the JWT token in the Authorization header of each request
- * and sets the authentication context if valid.
+ * Filter that checks the JWT token in the Authorization header of each request and sets the authentication context if
+ * valid.
  */
 @Configuration
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
+	Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class.getName());
 	/** The jwt service. */
 	@Autowired
 	private JwtService jwtService;
@@ -33,8 +35,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	private MyUserDetailService myUserDetailService;
 
 	/**
-	 * Intercepts incoming HTTP requests to validate JWT tokens and sets the
-	 * authentication context if the token is valid.
+	 * Intercepts incoming HTTP requests to validate JWT tokens and sets the authentication context if the token is
+	 * valid.
 	 *
 	 * @param request     the HTTP request
 	 * @param response    the HTTP response
@@ -72,8 +74,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 			if (userDetails != null && jwtService.isTokenValid(jwt)) {
 
 				// Create an authentication token and set the authentication context
-				UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,
-						userDetails.getPassword(), userDetails.getAuthorities());
+				UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+						username, userDetails.getPassword(), userDetails.getAuthorities());
 
 				// Set additional details for the authentication token
 				authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));

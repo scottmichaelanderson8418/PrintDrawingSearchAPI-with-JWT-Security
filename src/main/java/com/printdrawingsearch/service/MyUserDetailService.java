@@ -3,6 +3,8 @@ package com.printdrawingsearch.service;
 
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,7 +20,7 @@ import com.printdrawingsearch.repository.MyUserRepository;
  */
 @Service
 public class MyUserDetailService implements UserDetailsService {
-
+	Logger logger = LoggerFactory.getLogger(MyUserDetailService.class.getName());
 	/** The my user repository. */
 	@Autowired
 	private MyUserRepository myUserRepository;
@@ -32,6 +34,7 @@ public class MyUserDetailService implements UserDetailsService {
 	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		logger.trace("Entered......loadUserByUsername() ");
 
 		Optional<MyUser> user = myUserRepository.findByUsername(username);
 		// If the username is found then an object of the "UserDetails" Interface is
@@ -43,10 +46,12 @@ public class MyUserDetailService implements UserDetailsService {
 			// for building and instance of "UserBuilder" class
 			// the "UserBuilder" class contains a method called "build()" that returns a
 			// "UserDetails" object
+			logger.trace("Exited......loadUserByUsername() ");
 			return User.builder().username(userObj.getUsername()).password(userObj.getPassword())
 					.roles(getRoles(userObj)).build();
 
 		} else {
+			logger.trace("Exited......loadUserByUsername() ");
 			throw new UsernameNotFoundException(username);
 		}
 	}
@@ -59,12 +64,16 @@ public class MyUserDetailService implements UserDetailsService {
 	 */
 	// the getRoles method passes in an instance of "MyUser" class
 	private String[] getRoles(MyUser user) {
+		logger.trace("Entered......getRoles() ");
+
 		// if the user does not have a role set the role = "USER"
 		if (user.getRole() == null) {
 			// create a new String array containing the role= "USER"
+			logger.trace("Exited......getRoles() ");
 			return new String[] { "USER" };
 		}
 		// the split() method will separate a string by "," and create a String[] array
+		logger.trace("Exited......getRoles() ");
 		return user.getRole().split(",");
 	}
 }

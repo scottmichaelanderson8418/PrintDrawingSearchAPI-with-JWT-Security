@@ -10,6 +10,8 @@ import java.util.concurrent.TimeUnit;
 
 import javax.crypto.SecretKey;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +20,12 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 
 /**
- * Service for managing JWT (JSON Web Token) operations such as generating,
- * validating, and extracting information from tokens.
+ * Service for managing JWT (JSON Web Token) operations such as generating, validating, and extracting information from
+ * tokens.
  */
 @Service
 public class JwtService {
-
+	Logger logger = LoggerFactory.getLogger(JwtService.class.getName());
 	/** The Constant SECRET. */
 	// Note: we generate the secret key in the src/text/java classes
 	private static final String SECRET = "9179C05047F83F0CF8629483D243C714C863407B970FE3937EEF114FE0CD7F8B7F0D1C510429299ED910CD0381161" +
@@ -42,8 +44,7 @@ public class JwtService {
 	 * @return the username contained in the JWT
 	 */
 	public String extractUsername(String jwt) {
-		Claims claims = Jwts.parser().verifyWith(generateKey()).build().parseSignedClaims(jwt)
-				.getPayload();
+		Claims claims = Jwts.parser().verifyWith(generateKey()).build().parseSignedClaims(jwt).getPayload();
 		return claims.getSubject();
 	}
 
@@ -73,10 +74,8 @@ public class JwtService {
 		claims.put("iss", "https://secure.genuinecoder.com");
 
 		// claims.put("name", "https://secure.genuinecoder.com");
-		return Jwts.builder().claims(claims).subject(userDetails.getUsername())
-				.issuedAt(Date.from(Instant.now()))
-				.expiration(Date.from(Instant.now().plusMillis(VALIDITY))).signWith(generateKey())
-				.compact();
+		return Jwts.builder().claims(claims).subject(userDetails.getUsername()).issuedAt(Date.from(Instant.now()))
+				.expiration(Date.from(Instant.now().plusMillis(VALIDITY))).signWith(generateKey()).compact();
 	}
 
 	/**
