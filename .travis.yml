@@ -1,0 +1,23 @@
+sudo: required  # (Or false if sudo is not needed)
+
+language: java
+jdk:
+  - openjdk17
+
+before_install:
+  - chmod +x mvnw
+
+script:
+  - ./mvnw clean install
+
+  
+deploy:
+	provider: elasticbeanstalk
+	skip_cleanup: true #every time travis cleans up the jar files are deleted
+	region: us-east2
+	app: PrintDrawingSearchAPI
+	env: PrintDrawingSearchAPI-env
+	zip_file: "target/"
+  
+  
+  
