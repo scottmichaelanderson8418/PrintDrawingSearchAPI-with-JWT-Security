@@ -74,6 +74,11 @@ public class PrintController {
 		this.printDrawingService = printDrawingService;
 	}
 
+	@GetMapping("/")
+	public String sayHello() {
+		return "Hello";
+	}
+
 	/**
 	 * Authenticates a user and returns a JWT token.
 	 *
