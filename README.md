@@ -18,7 +18,7 @@ with the PrintSearchAPI @RestController endpoints.
 
 
 
-Print Drawing API-ScottMichaelAnderson.postman_collection.json
+
 
 ## Step #02
 
