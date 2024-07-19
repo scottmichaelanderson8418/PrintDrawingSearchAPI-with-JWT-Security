@@ -1,3 +1,8 @@
+
+
+
+# PrintDrawingSearchAPI - README
+## Step #01
 1. Run the PrintSearchAPI using Spring Tools Suite as a maven project. The PrintSearchAPI program will
 create the database named "printdrawingdatabase" and a table named "printdrawings".
 2. Use the .sql file named "PrintDrawings.sql" to fill up the "printdrawings" table with the data.
@@ -5,9 +10,7 @@ create the database named "printdrawingdatabase" and a table named "printdrawing
 with the PrintSearchAPI @RestController endpoints.
 
 
-# PrintDrawingSearchAPI - README
-
-## Step #01
+## Step #02
 
 1. Using Spring Tools Suite (or your preferred IDE), open PrintDrawingSearchAPI.
 
@@ -16,16 +19,12 @@ with the PrintSearchAPI @RestController endpoints.
 3. Use the Postman API Platform and import the following .json file into Postman.
 - Print Drawing API-ScottMichaelAnderson.postman_collection.json
 
-
-
-
-
-## Step #02
+## Step #03
 
 1. Register your user at `http://localhost:8080/register/user`.
 2. Enter username and password.
 
-## Step #03
+## Step #04
 
 1. Authenticate your username and password at `http://localhost:8080/api/authenticate`
 2. If authentication is successful you will receive a Bearer Token.
