@@ -17,7 +17,7 @@ with the PrintSearchAPI @RestController endpoints.
 2. Run the PrintDrawingSearchAPI as a "Spring Boot App".
 
 3. Use the Postman API Platform and import the following .json file into Postman.
-- Print Drawing API-ScottMichaelAnderson.postman_collection.json
+- "Print Drawing API-ScottMichaelAnderson.postman_collection.json"
 
 ## Step #03
 
