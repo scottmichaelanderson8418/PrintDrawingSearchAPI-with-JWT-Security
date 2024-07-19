@@ -36,7 +36,7 @@ with the PrintSearchAPI @RestController endpoints.
 
 -   Users with "ADMIN" role can access the following Endpoints
     -   GET ALL PRINTS --> `http://localhost:8080/api/print?pageNo=0&pageSize=10`
-    - FIND DIAMETER AND FACE LENGTH --> `[http://localhost:8080/admin/activeuser](http://localhost:8080/api/pagination/0/10?sortField=diameterLow&diameterMinValue=7.1&diameterMaxValue=7.2&faceLengthMinValue=40&faceLengthMaxValue=50)`
+    - FILTER BY DIAMETER AND FACE LENGTH --> `[http://localhost:8080/admin/activeuser](http://localhost:8080/api/pagination/0/10?sortField=diameterLow&diameterMinValue=7.1&diameterMaxValue=7.2&faceLengthMinValue=40&faceLengthMaxValue=50)`
     -   GET ALL USERS --> `http://localhost:8080/admin/getallusers`
     -   GET USER BY ID --> `http://localhost:8080/admin/user/{id}`
     -   DELETE USER BY ID --> `http://localhost:8080/admin/user/delete/{id}`
