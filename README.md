@@ -15,9 +15,9 @@ with the PrintSearchAPI @RestController endpoints.
 
 3. Use the Postman API Platform and import the following .json files into Postman. The files are located in the PrintDrawingSearchAPI directory.
 
-4. TaskManagerAPI.postman_collection.json
+4. Print Drawing API-postman_collection.json
 
-5. TaskManagerAPI-USERS.postman_collection.json
+5. Print Drawing API-ScottMichaelAnderson.postman_collection.json
 
 ## Step #02
 
