@@ -23,32 +23,20 @@ with the PrintSearchAPI @RestController endpoints.
 ## Step #02
 
 1. Register your user at `http://localhost:8080/register/user`.
-2. Enter username, password, and role.
-
--   Note: the roles variable must be in the following format with no spaces:
-    -   "USER,ADMIN"
-    -   "ADMIN,USER"
-    -   "USER"
-    -   "ADMIN"
+2. Enter username and password.
 
 ## Step #03
 
-1. Login your user at `http://localhost:8080/login`
-2. You will be authenticated and you will be authorized to access the endpoints accessible with your specified role.
+1. Authenticate your username and password at `http://localhost:8080/api/authenticate`
+2. If authentication is successful you will receive a Bearer Token.
+3. Use the Bearer Token to access the other endpoints.
 
-### Note: For Users without the "ADMIN" role
 
--   Users without "ADMIN" role can access the following Endpoints
-    -   CREATE NEW TASK --> `http://localhost:8080/api/task/create`
-    -   UPDATE TASK BY ID --> `http://localhost:8080/api/task/update/{id}`
-    -   GET ALL TASKS --> `http://localhost:8080/api/getalltasks?pageNo=0&pageSize=10`
-    -   GET TASK BY ID --> `http://localhost:8080/api/task/{id}`
-    -   DELETE TASK BY ID --> `http://localhost:8080/api/task/delete/{id}`
-
-### Note: For Users with "ADMIN" role
+### Note: Bearer Token allows access to the following endpoints
 
 -   Users with "ADMIN" role can access the following Endpoints
-    -   WHICH USER IS LOGGED IN --> `http://localhost:8080/admin/activeuser`
+    -   GET ALL PRINTS --> `http://localhost:8080/api/print?pageNo=0&pageSize=10`
+    - FIND DIAMETER AND FACE LENGTH --> `[http://localhost:8080/admin/activeuser](http://localhost:8080/api/pagination/0/10?sortField=diameterLow&diameterMinValue=7.1&diameterMaxValue=7.2&faceLengthMinValue=40&faceLengthMaxValue=50)`
     -   GET ALL USERS --> `http://localhost:8080/admin/getallusers`
     -   GET USER BY ID --> `http://localhost:8080/admin/user/{id}`
     -   DELETE USER BY ID --> `http://localhost:8080/admin/user/delete/{id}`
