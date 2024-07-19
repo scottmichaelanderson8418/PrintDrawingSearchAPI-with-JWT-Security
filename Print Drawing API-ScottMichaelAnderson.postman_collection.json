@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "f1330103-054d-4cb1-87c2-2c567f632cfd",
+		"_postman_id": "45776496-7c88-4ee7-a5ad-5a5fa8dee0d5",
 		"name": "Print Drawing API-ScottMichaelAnderson",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "15945894"
+		"_exporter_id": "15945894",
+		"_collection_link": "https://planetary-spaceship-178806.postman.co/workspace/Scott_1~cc78b271-540d-4258-b264-7d0815bac579/collection/15945894-45776496-7c88-4ee7-a5ad-5a5fa8dee0d5?action=share&source=collection_link&creator=15945894"
 	},
 	"item": [
 		{
@@ -12,6 +13,16 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwczovL3NlY3VyZS5nZW51aW5lY29kZXIuY29tIiwic3ViIjoidXNlcm5hbWUiLCJpYXQiOjE3MjEzNTYyODMsImV4cCI6MTcyMTM1ODA4M30.ltPpioSn2PPoKMgn1U8Xb-VNY6mt6DbOidb36fiSQIViSKPMXN4t20TPhPwrHnvOOK4j7AzvfPOblp6m8jMTIA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -49,11 +60,21 @@
 			"response": []
 		},
 		{
-			"name": "FIND BY DIAMETER AND FACELENGTH",
+			"name": "FILTER BY DIAMETER AND FACE LENGTH",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwczovL3NlY3VyZS5nZW51aW5lY29kZXIuY29tIiwic3ViIjoidXNlcm5hbWUiLCJpYXQiOjE3MjEzNTYyODMsImV4cCI6MTcyMTM1ODA4M30.ltPpioSn2PPoKMgn1U8Xb-VNY6mt6DbOidb36fiSQIViSKPMXN4t20TPhPwrHnvOOK4j7AzvfPOblp6m8jMTIA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -112,6 +133,16 @@
 				}
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwczovL3NlY3VyZS5nZW51aW5lY29kZXIuY29tIiwic3ViIjoidXNlcm5hbWUiLCJpYXQiOjE3MjEzNTYyODMsImV4cCI6MTcyMTM1ODA4M30.ltPpioSn2PPoKMgn1U8Xb-VNY6mt6DbOidb36fiSQIViSKPMXN4t20TPhPwrHnvOOK4j7AzvfPOblp6m8jMTIA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [
 					{
@@ -125,7 +156,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"bearingMax\": \"value_bearingMax\",\r\n    \"bearingMin\": \"value_bearingMin\",\r\n    \"cust\": \"value_cust\",\r\n    \"custPin\": \"value_custPin\",\r\n    \"custRev\": \"value_custRev\",\r\n    \"date\": \"value_date\",\r\n    \"dateCreated\": \"value_dateCreated\",\r\n    \"dia1\": \"value_dia1\",\r\n    \"dia2\": \"value_dia2\",\r\n    \"dmgDrawingPath\": \"value_dmgDrawingPath\",\r\n    \"drawingName\": \"value_drawingName\",\r\n    \"face1\": \"value_face1\",\r\n    \"face2\": \"value_face2\",\r\n    \"id\": 123,\r\n    \"newBasePrice\": \"value_newBasePrice\",\r\n    \"oem\": \"value_oem\",\r\n    \"originatingCustomer\": \"value_originatingCustomer\",\r\n    \"partNo\": \"value_partNo\",\r\n    \"pdfPath\": \"value_pdfPath\",\r\n    \"prevPartNo\": \"value_prevPartNo\",\r\n    \"productCode\": \"value_productCode\",\r\n    \"revNumber\": \"value_revNumber\",\r\n    \"scannedPath\": \"value_scannedPath\",\r\n    \"steps\": \"value_steps\",\r\n    \"subcontractor\": \"value_subcontractor\",\r\n    \"type\": \"value_type\",\r\n    \"xlsmPath\": \"value_xlsmPath\",\r\n    \"xlsxPath\": \"value_xlsxPath\"\r\n}",
+					"raw": "{\r\n    \"bearingMax\": \"value_bearingMax_UPDATED\",\r\n    \"bearingMin\": \"value_bearingMin_UPDATED\",\r\n    \"cust\": \"value_cust_UPDATED\",\r\n    \"custPin\": \"value_custPin_UPDATED\",\r\n    \"custRev\": \"value_custRev_UPDATED\",\r\n    \"date\": \"value_date_UPDATED\",\r\n    \"dateCreated\": \"value_dateCreated_UPDATED\",\r\n    \"dia1\": \"value_dia1_UPDATED\",\r\n    \"dia2\": \"value_dia2_UPDATED\",\r\n    \"dmgDrawingPath\": \"value_dmgDrawingPath_UPDATED\",\r\n    \"drawingName\": \"value_drawingName_UPDATED\",\r\n    \"face1\": \"value_face1_UPDATED\",\r\n    \"face2\": \"value_face2_UPDATED\",\r\n    \"newBasePrice\": \"value_newBasePrice_UPDATED\",\r\n    \"oem\": \"value_oem_UPDATED\",\r\n    \"originatingCustomer\": \"value_originatingCustomer_UPDATED\",\r\n    \"partNo\": \"value_partNo_UPDATED\",\r\n    \"pdfPath\": \"value_pdfPath_UPDATED\",\r\n    \"prevPartNo\": \"value_prevPartNo_UPDATED\",\r\n    \"productCode\": \"value_productCode_UPDATED\",\r\n    \"revNumber\": \"value_revNumber_UPDATED\",\r\n    \"scannedPath\": \"value_scannedPath_UPDATED\",\r\n    \"steps\": \"value_steps_UPDATED\",\r\n    \"subcontractor\": \"value_subcontractor_UPDATED\",\r\n    \"type\": \"value_type_UPDATED\",\r\n    \"xlsmPath\": \"value_xlsmPath_UPDATED\",\r\n    \"xlsxPath\": \"value_xlsxPath_UPDATED\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -155,6 +186,16 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwczovL3NlY3VyZS5nZW51aW5lY29kZXIuY29tIiwic3ViIjoidXNlcm5hbWUiLCJpYXQiOjE3MjEzNTYyODMsImV4cCI6MTcyMTM1ODA4M30.ltPpioSn2PPoKMgn1U8Xb-VNY6mt6DbOidb36fiSQIViSKPMXN4t20TPhPwrHnvOOK4j7AzvfPOblp6m8jMTIA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -167,7 +208,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/print/10",
+					"raw": "http://localhost:8080/api/print/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -176,38 +217,7 @@
 					"path": [
 						"api",
 						"print",
-						"10"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "UPDATE PRINT BY ID",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\r\n\"drawingName\":\"zzzz\",\r\n    \"dia1\": \"9.699\",\r\n    \"dia2\" : \"44.444\",\r\n    \"face2\": \"999977777779\",\r\n    \"face1\":\"66666\"\r\n\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/print/update/10",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"print",
-						"update",
-						"10"
+						"1"
 					]
 				}
 			},
@@ -216,11 +226,21 @@
 		{
 			"name": "DELETE PRINT BY ID",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwczovL3NlY3VyZS5nZW51aW5lY29kZXIuY29tIiwic3ViIjoidXNlcm5hbWUiLCJpYXQiOjE3MjEzNTgxNzUsImV4cCI6MTcyMTM1OTk3NX0.7bQZWBEDN_8gAz-mhG9WJF6pmOQV5_TPMH53DL5g3YlwxJ4ygTxNY6Xw_9D1iMw5XdrDi39hZEoFFF34WS_HoA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\r\n\r\n\"name\":\"Scott Pokesdadasdasdmon\",\r\n\"type\": \"earth type\"\r\n\r\n\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -247,6 +267,16 @@
 		{
 			"name": "CREATE NEW PRINT",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwczovL3NlY3VyZS5nZW51aW5lY29kZXIuY29tIiwic3ViIjoidXNlcm5hbWUiLCJpYXQiOjE3MjEzNTgxNzUsImV4cCI6MTcyMTM1OTk3NX0.7bQZWBEDN_8gAz-mhG9WJF6pmOQV5_TPMH53DL5g3YlwxJ4ygTxNY6Xw_9D1iMw5XdrDi39hZEoFFF34WS_HoA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -281,7 +311,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\n\n    \"username\": \"ScottMichaelAnderson8418@gmail.com\",\n    \"password\": \"123\"\n}",
+					"raw": "{\n\n    \"username\": \"username\",\n    \"password\": \"password\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -289,14 +319,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/register/user",
+					"raw": "http://localhost:8080/register/user",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"api",
 						"register",
 						"user"
 					]
@@ -311,7 +340,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\n\n    \"username\": \"PHATMOMMA\",\n    \"password\": \"1234\"\n    \n}",
+					"raw": "{\n\n\n    \"username\": \"username\",\n    \"password\": \"password\"\n    \n}",
 					"options": {
 						"raw": {
 							"language": "json"
